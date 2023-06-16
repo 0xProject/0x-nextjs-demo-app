@@ -7,11 +7,13 @@ An example ERC-20 swap application built on [Next.js](https://nextjs.org/) with 
 
 ## Getting Started
 1. Setup the required API keys
+
 | **API Keys**           | **Description**                                                                                                       | **Code**                                                                                                                                                                                  |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | alchemyId              | Alchemy API key (create one [here](https://docs.alchemy.com/docs/alchemy-quickstart-guide#1key-create-an-alchemy-key) | Add [here](https://github.com/0xProject/0x-nextjs-demo-app/blob/main/pages/_app.tsx#L14)                                                                                                  |
 | walletConnectProjectId | WalletConnect's SDK to help with connecting wallets (create one [here](https://cloud.walletconnect.com/sign-in))      | Add [here](https://github.com/0xProject/0x-nextjs-demo-app/blob/main/pages/_app.tsx#L15)                                                                                                  |
-| 0x                     | 0x API key (create one [here](https://0x.org/docs/introduction/getting-started))                                      | Add [here](https://github.com/0xProject/0x-nextjs-demo-app/blob/main/pages/api/price.ts#L18) and [here](https://github.com/0xProject/0x-nextjs-demo-app/blob/main/pages/api/quote.ts#L18) |
+| 0x                     | 0x API key (create one [here](https://0x.org/docs/introduction/getting-started))                                      | Add for /price [here](https://github.com/0xProject/0x-nextjs-demo-app/blob/main/pages/api/price.ts#L18) and for /quote [here](https://github.com/0xProject/0x-nextjs-demo-app/blob/main/pages/api/quote.ts#L18) |
+
 
 2. Install project dependencies
 
