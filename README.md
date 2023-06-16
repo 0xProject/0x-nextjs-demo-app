@@ -3,6 +3,8 @@
 ## Overview
 An example ERC-20 swap application built on [Next.js](https://nextjs.org/) with [0x Swap API](https://0x.org/docs/0x-swap-api/introduction) and [ConnectKit](https://docs.family.co/connectkit#connectkit).
 
+![](https://raw.githubusercontent.com/0xProject/0x-nextjs-demo-app/main/public/demo.gif)
+
 ## Getting Started
 1. Install project dependencies
 
