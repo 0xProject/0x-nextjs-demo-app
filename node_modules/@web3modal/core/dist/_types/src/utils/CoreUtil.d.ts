@@ -1,0 +1,22 @@
+export declare const CoreUtil: {
+    WALLETCONNECT_DEEPLINK_CHOICE: string;
+    W3M_VERSION: string;
+    W3M_PREFER_INJECTED_URL_FLAG: string;
+    RECOMMENDED_WALLET_AMOUNT: number;
+    isMobile(): boolean;
+    isAndroid(): boolean;
+    isIos(): boolean;
+    isHttpUrl(url: string): boolean;
+    isArray<T>(data?: T | T[] | undefined): data is T[];
+    formatNativeUrl(appUrl: string, wcUri: string, name: string): string;
+    formatUniversalUrl(appUrl: string, wcUri: string, name: string): string;
+    wait(miliseconds: number): Promise<unknown>;
+    openHref(href: string, target: '_blank' | '_self'): void;
+    setWalletConnectDeepLink(href: string, name: string): void;
+    setWalletConnectAndroidDeepLink(wcUri: string): void;
+    removeWalletConnectDeepLink(): void;
+    setWeb3ModalVersionInStorage(): void;
+    getWalletRouterData(): import("../..").WalletData;
+    getSwitchNetworkRouterData(): import("../types/controllerTypes").Chain;
+    isPreferInjectedFlag(): boolean;
+};

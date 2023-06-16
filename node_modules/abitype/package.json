@@ -1,0 +1,73 @@
+{
+  "name": "abitype",
+  "description": "Strict TypeScript types for Ethereum ABIs",
+  "peerDependencies": {
+    "typescript": ">=5.0.4",
+    "zod": "^3 >=3.19.1"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
+  "version": "0.8.7",
+  "files": [
+    "dist",
+    "!dist/**/*.tsbuildinfo",
+    "src/**/*.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.test-d.ts",
+    "!src/**/*.bench.ts",
+    "!src/_test/**/*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./config": {
+      "types": "./dist/types/config.d.ts",
+      "import": "./dist/esm/config.js",
+      "require": "./dist/cjs/config.js"
+    },
+    "./test": {
+      "types": "./dist/types/test/index.d.ts",
+      "import": "./dist/esm/test/index.js",
+      "require": "./dist/cjs/test/index.js"
+    },
+    "./zod": {
+      "types": "./dist/types/zod/index.d.ts",
+      "import": "./dist/esm/zod/index.js",
+      "require": "./dist/cjs/zod/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "config": [
+        "./dist/types/config.d.ts"
+      ],
+      "test": [
+        "./dist/types/test/index.d.ts"
+      ],
+      "zod": [
+        "./dist/types/zod/index.d.ts"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "license": "MIT",
+  "repository": "wagmi-dev/abitype",
+  "keywords": [
+    "abi",
+    "eth",
+    "ethereum",
+    "typescript",
+    "web3"
+  ]
+}

@@ -1,0 +1,2 @@
+export { Abi, AbiConstructor, AbiEvent, AbiEventParameter, AbiError, AbiFallback, AbiFunction, AbiItemType, AbiParameter, AbiReceive, AbiStateMutability, Address, SolidityAddress, SolidityArray, SolidityArrayWithoutTuple, SolidityArrayWithTuple, SolidityBool, SolidityBytes, SolidityFunction, SolidityInt, SolidityString, SolidityTuple, } from './zod.js';
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,63 @@
+{
+  "name": "@walletconnect/logger",
+  "description": "Logger Utils",
+  "version": "2.0.1",
+  "author": "WalletConnect, Inc. <walletconnect.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/WalletConnect/walletconnect-utils/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WalletConnect/walletconnect-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WalletConnect/walletconnect-utils/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "pino",
+    "pino-prettier",
+    "utils",
+    "context",
+    "formatting",
+    "browser"
+  ],
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "unpkg": "dist/umd/index.min.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:umd": "webpack",
+    "build": "run-s clean build:cjs build:esm build:umd ",
+    "test": "env TS_NODE_PROJECT=\"tsconfig.cjs.json\" mocha --timeout 5000 --exit -r ts-node/register ./test/**/*.test.ts",
+    "lint": "eslint -c '../../.eslintrc' --fix './src/**/*.ts'"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.7",
+    "@types/pino": "^6.3.3",
+    "husky": "^4.3.0",
+    "pino-pretty": "^7.6.0",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-s lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "es5"
+  },
+  "dependencies": {
+    "pino": "7.11.0",
+    "tslib": "1.14.1"
+  }
+}

@@ -1,0 +1,10 @@
+export declare const SpinnerContainer: any;
+export declare const Arrow: any;
+export declare const ArrowChevron: any;
+export declare const ArrowLine: any;
+export declare const DownloadArrow: any;
+export declare const DownloadArrowInner: any;
+export declare const ButtonContainerInner: any;
+export declare const ButtonContainer: any;
+export declare const InnerContainer: any;
+export declare const IconContainer: any;
