@@ -34,7 +34,8 @@ export const POLYGON_TOKENS: Token[] = [
     symbol: "DAI",
     decimals: 18,
     address: "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/dai.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/dai.svg",
   },
   {
     chainId: 137,
@@ -42,7 +43,8 @@ export const POLYGON_TOKENS: Token[] = [
     symbol: "USDC",
     decimals: 6,
     address: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/usdc.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/usdc.svg",
   },
   {
     chainId: 137,
@@ -50,7 +52,8 @@ export const POLYGON_TOKENS: Token[] = [
     symbol: "UNI",
     decimals: 18,
     address: "0xb33eaad8d922b1083446dc23f610c2567fb5180f",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/uni.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/uni.svg",
   },
   {
     chainId: 137,
@@ -79,7 +82,8 @@ export const POLYGON_TOKENS_BY_SYMBOL: Record<string, Token> = {
     symbol: "DAI",
     decimals: 18,
     address: "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/dai.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/dai.svg",
   },
   usdc: {
     chainId: 137,
@@ -87,7 +91,8 @@ export const POLYGON_TOKENS_BY_SYMBOL: Record<string, Token> = {
     symbol: "USDC",
     decimals: 6,
     address: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/usdc.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/usdc.svg",
   },
   uni: {
     chainId: 137,
@@ -95,7 +100,8 @@ export const POLYGON_TOKENS_BY_SYMBOL: Record<string, Token> = {
     symbol: "UNI",
     decimals: 18,
     address: "0xb33eaad8d922b1083446dc23f610c2567fb5180f",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/uni.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/uni.svg",
   },
   usdt: {
     chainId: 137,
@@ -124,7 +130,8 @@ export const POLYGON_TOKENS_BY_ADDRESS: Record<string, Token> = {
     symbol: "DAI",
     decimals: 18,
     address: "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/dai.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/dai.svg",
   },
   "0x2791bca1f2de4661ed88a30c99a7a9449aa84174": {
     chainId: 137,
@@ -132,7 +139,8 @@ export const POLYGON_TOKENS_BY_ADDRESS: Record<string, Token> = {
     symbol: "USDC",
     decimals: 6,
     address: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/usdc.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/usdc.svg",
   },
   "0xb33eaad8d922b1083446dc23f610c2567fb5180f": {
     chainId: 137,
@@ -140,7 +148,8 @@ export const POLYGON_TOKENS_BY_ADDRESS: Record<string, Token> = {
     symbol: "UNI",
     decimals: 18,
     address: "0xb33eaad8d922b1083446dc23f610c2567fb5180f",
-    logoURI: "https://wallet-asset.matic.network/img/tokens/uni.svg",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/uni.svg",
   },
   "0xc2132d05d31c914a87c6611c10748aeb04b58e8f": {
     chainId: 137,
