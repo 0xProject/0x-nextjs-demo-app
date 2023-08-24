@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {
   POLYGON_TOKENS_BY_SYMBOL,
   POLYGON_TOKENS_BY_ADDRESS,
