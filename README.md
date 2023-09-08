@@ -19,14 +19,13 @@ An example ERC-20 swap application built on [Next.js 13](https://nextjs.org/) wi
 2. Install project dependencies
 
 ```
-npm install connectkit wagmi viem
+npm install
 ```
 
 3. Start the Next.js development server
 
 ```
-yarn
-yarn run dev
+npm run dev
 ```
 
 4. Navigate to [http://localhost:3000](http://localhost:3000)
