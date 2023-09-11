@@ -37,6 +37,7 @@ export default function QuoteView({
         buyToken: price.buyTokenAddress,
         sellAmount: price.sellAmount,
         // buyAmount: TODO if we want to support buys,
+        intentOnFilling: true, // Used to enable RFQ liquidity
         takerAddress,
       },
     ],
