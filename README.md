@@ -52,4 +52,4 @@ open http://localhost:3000
 
 #### RFQ Integration on Swap API
 
-- [**How to Integrate RFQ Liquidity**](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity)0
+- [**How to Integrate RFQ Liquidity**](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity)
