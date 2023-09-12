@@ -36,9 +36,20 @@ open http://localhost:3000
 
 ## Resources
 
+### Video
+
 🎥 Watch [this video](https://www.youtube.com/watch?v=P1ECx9zKQiU) for an walk-through of this app.
 
-- **📚 Swap API Docs:** https://0x.org/docs/0x-swap-api/introduction
-- **Quote API Endpoint:** https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-quote
-- **Price API Endpoint:** https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-price
-- **⛓️ Swap API Endpoints on All Networks:** https://0x.org/docs/introduction/0x-cheat-sheet
+### Documentation
+
+#### Swap API Basics
+
+- [**📚 Swap API Docs**](https://0x.org/docs/0x-swap-api/introduction)
+- [**How to Use Swap API**](https://0x.org/docs/0x-swap-api/guides/swap-tokens-with-0x-swap-api)
+- [**Quote API Endpoint**](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-quote)
+- [**Price API Endpoint**](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-price)
+- [**⛓️ Swap API Endpoints on All Networks**](https://0x.org/docs/introduction/0x-cheat-sheet)
+
+#### RFQ Integration on Swap API
+
+- The 0x Swap API makes it simple to easily integrate RFQ liquidity for the best pricing. This demo app is setup to enble RFQ liquidity by default becuase it requires a non-null takerAddress. For more implement details and the difference between indicative pricing and requesting a firm quote, check out [**How to Integrate RFQ Liquidity**](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity). 
