@@ -26,6 +26,9 @@ interface PriceRequestParams {
   takerAddress?: string;
 }
 
+const AFFILIATE_FEE = 0.1;
+const FEE_RECIPIENT = "0x75A94931B81d81C7a62b76DC0FcFAC77FbE1e917";
+
 export const fetcher = ([endpoint, params]: [string, PriceRequestParams]) => {
   const { sellAmount, buyAmount } = params;
   if (!sellAmount && !buyAmount) return;
@@ -35,6 +38,7 @@ export const fetcher = ([endpoint, params]: [string, PriceRequestParams]) => {
 };
 
 export default function PriceView({
+  price,
   setPrice,
   setFinalize,
   takerAddress,
@@ -61,6 +65,7 @@ export default function PriceView({
 
   const sellTokenDecimals = POLYGON_TOKENS_BY_SYMBOL[sellToken].decimals;
 
+  console.log(sellAmount, sellTokenDecimals, "<-");
   const parsedSellAmount =
     sellAmount && tradeDirection === "sell"
       ? parseUnits(sellAmount, sellTokenDecimals).toString()
@@ -82,6 +87,8 @@ export default function PriceView({
         sellAmount: parsedSellAmount,
         buyAmount: parsedBuyAmount,
         takerAddress,
+        feeRecipient: FEE_RECIPIENT,
+        buyTokenPercentageFee: AFFILIATE_FEE,
       },
     ],
     fetcher,
@@ -89,6 +96,7 @@ export default function PriceView({
       onSuccess: (data) => {
         setPrice(data);
         if (tradeDirection === "sell") {
+          console.log(formatUnits(data.buyAmount, buyTokenDecimals), data);
           setBuyAmount(formatUnits(data.buyAmount, buyTokenDecimals));
         } else {
           setSellAmount(formatUnits(data.sellAmount, sellTokenDecimals));
@@ -96,6 +104,12 @@ export default function PriceView({
       },
     }
   );
+
+  if (price && price.grossBuyAmount) {
+    console.log(
+      Number(formatUnits(BigInt(price.grossBuyAmount), 18)) * AFFILIATE_FEE
+    );
+  }
 
   return (
     <form>
@@ -183,6 +197,12 @@ export default function PriceView({
             }}
           />
         </section>
+        <div className="text-white">
+          Affiliate Fee: &nbsp;
+          {price && price.grossBuyAmount
+            ? Number(formatUnits(BigInt(price.grossBuyAmount), 18)) * 0.1
+            : null}
+        </div>
       </div>
 
       {takerAddress ? (

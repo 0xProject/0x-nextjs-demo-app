@@ -108,6 +108,12 @@ export default function QuoteView({
             </div>
           </div>
         </div>
+        <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-sm mb-3">
+          <div className="flex items-center text-sm mb-2 text-white ">
+            <div className="justify-items-start">Fees</div>
+            <div className="justify-items-end">Amount</div>
+          </div>
+        </div>
       </form>
 
       <button
