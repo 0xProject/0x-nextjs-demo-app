@@ -26,8 +26,8 @@ interface PriceRequestParams {
   takerAddress?: string;
 }
 
-const AFFILIATE_FEE = 0.1;
-const FEE_RECIPIENT = "0x75A94931B81d81C7a62b76DC0FcFAC77FbE1e917";
+const AFFILIATE_FEE = 0.01; // Percentage of the buyAmount that should be attributed to feeRecipient as affiliate fees
+const FEE_RECIPIENT = "0x75A94931B81d81C7a62b76DC0FcFAC77FbE1e917"; // The ETH address that should receive affiliate fees
 
 export const fetcher = ([endpoint, params]: [string, PriceRequestParams]) => {
   const { sellAmount, buyAmount } = params;
@@ -200,7 +200,8 @@ export default function PriceView({
         <div className="text-white">
           Affiliate Fee: &nbsp;
           {price && price.grossBuyAmount
-            ? Number(formatUnits(BigInt(price.grossBuyAmount), 18)) * 0.1
+            ? Number(formatUnits(BigInt(price.grossBuyAmount), 18)) *
+              AFFILIATE_FEE
             : null}
         </div>
       </div>
