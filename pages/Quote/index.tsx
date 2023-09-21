@@ -77,6 +77,8 @@ export default function QuoteView({
       Number(formatUnits(BigInt(quote.grossBuyAmount), 18)) * AFFILIATE_FEE
     );
   }
+  console.log("quote", quote);
+  console.log(formatUnits(quote.sellAmount, sellTokenInfo.decimals));
 
   return (
     <div className="p-3 mx-auto max-w-screen-sm ">
@@ -109,20 +111,22 @@ export default function QuoteView({
               }
             />
             <span>{formatUnits(quote.buyAmount, buyTokenInfo.decimals)}</span>
-            <div className="ml-2">
-              {
-                POLYGON_TOKENS_BY_ADDRESS[price.buyTokenAddress.toLowerCase()]
-                  .symbol
-              }
-            </div>
+            <div className="ml-2">{buyTokenInfo.symbol}</div>
           </div>
         </div>
         <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-sm mb-3">
-          <div className="text-white">
-            Affiliate Fee: &nbsp;
+          <div className="text-slate-400">
             {quote && quote.grossBuyAmount
-              ? Number(formatUnits(BigInt(quote.grossBuyAmount), 18)) *
-                AFFILIATE_FEE
+              ? "Affiliate Fee: " +
+                Number(
+                  formatUnits(
+                    BigInt(quote.grossBuyAmount),
+                    buyTokenInfo.decimals
+                  )
+                ) *
+                  AFFILIATE_FEE +
+                " " +
+                buyTokenInfo.symbol
               : null}
           </div>
         </div>

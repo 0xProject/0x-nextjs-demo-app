@@ -14,6 +14,7 @@ import {
 import {
   POLYGON_TOKENS,
   POLYGON_TOKENS_BY_SYMBOL,
+  POLYGON_TOKENS_BY_ADDRESS,
   MAX_ALLOWANCE,
   exchangeProxy,
 } from "../../lib/constants";
@@ -197,11 +198,18 @@ export default function PriceView({
             }}
           />
         </section>
-        <div className="text-white">
-          Affiliate Fee: &nbsp;
+        <div className="text-slate-400">
           {price && price.grossBuyAmount
-            ? Number(formatUnits(BigInt(price.grossBuyAmount), 18)) *
-              AFFILIATE_FEE
+            ? "Affiliate Fee: " +
+              Number(
+                formatUnits(
+                  BigInt(price.grossBuyAmount),
+                  POLYGON_TOKENS_BY_SYMBOL[buyToken].decimals
+                )
+              ) *
+                AFFILIATE_FEE +
+              " " +
+              POLYGON_TOKENS_BY_SYMBOL[buyToken].symbol
             : null}
         </div>
       </div>
