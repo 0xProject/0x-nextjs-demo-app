@@ -8,7 +8,7 @@ Covers best practices for how to use the 0x Swap API's [/price](https://0x.org/d
 
 ### Live Demo
 
-Checkout with live demo 👉 [here](https://0x-nextjs-demo-3h2i6g4tm-0x-eng.vercel.app/).
+Checkout with live demo 👉 [here](https://0x-nextjs-demo-app-git-main-0x-eng.vercel.app/)
 
 ![](https://raw.githubusercontent.com/0xProject/0x-nextjs-demo-app/main/public/demo.gif)
 
@@ -58,4 +58,14 @@ open http://localhost:3000
 
 #### RFQ Integration on Swap API
 
-- The 0x Swap API makes it simple to easily integrate RFQ liquidity for the best pricing. This demo app is setup to enble RFQ liquidity by default becuase it requires a non-null takerAddress. For more implement details and the difference between indicative pricing and requesting a firm quote, check out [**How to Integrate RFQ Liquidity**](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity). 
+The 0x Swap API makes it simple to easily integrate RFQ liquidity for the best pricing. This demo app is setup to enble RFQ liquidity by default becuase it requires a non-null takerAddress. For more implement details and the difference between indicative pricing and requesting a firm quote, check out [**How to Integrate RFQ Liquidity**](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity). 
+
+#### Monetizing Your Swap Integration
+
+You have full flexibility on the affiliate fees you collect on your trades. This can be done by setting the `feeRecipient` and `buyTokenPercentageFee` parameters in a Swap API request. 
+
+If you would like to display the fee to your end users separately, just display the amount returned by `grossBuyAmount` * `buyTokenPercentageFee`.
+
+Learn more about setting it up [here] (https://0x.org/docs/developer-resources/faqs-and-troubleshooting#monetizing-your-swap-integration). 
+
+
