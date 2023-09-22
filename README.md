@@ -62,10 +62,10 @@ The 0x Swap API makes it simple to easily integrate RFQ liquidity for the best p
 
 #### Monetizing Your Swap Integration
 
-You have full flexibility on the affiliate fees you collect on your trades. This can be done by setting the `feeRecipient` and `buyTokenPercentageFee` parameters in a Swap API request. 
+You have full flexibility to collect affiliate fees on trades going through your swap integration. This can be done by setting the `feeRecipient` and `buyTokenPercentageFee` parameters in a Swap API request. 
 
 If you would like to display the fee to your end users separately, just display the amount returned by `grossBuyAmount` * `buyTokenPercentageFee`.
 
-Learn more about setting it up [here] (https://0x.org/docs/developer-resources/faqs-and-troubleshooting#monetizing-your-swap-integration). 
+Learn more about setting up monetization [here](https://0x.org/docs/developer-resources/faqs-and-troubleshooting#monetizing-your-swap-integration). 
 
 
