@@ -317,7 +317,7 @@ function ApproveOrReviewButton({
             const writtenValue = await approveAsync();
           }}
         >
-          {isApproving ? "Approving..." : "Approve"}
+          {isApproving ? "Approving…" : "Approve"}
         </button>
       </>
     );
