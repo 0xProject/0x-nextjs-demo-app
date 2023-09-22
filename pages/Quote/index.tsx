@@ -14,6 +14,9 @@ import {
   type Address,
 } from "wagmi";
 
+const AFFILIATE_FEE = 0.01; // Percentage of the buyAmount that should be attributed to feeRecipient as affiliate fees
+const FEE_RECIPIENT = "0x75A94931B81d81C7a62b76DC0FcFAC77FbE1e917"; // The ETH address that should receive affiliate fees
+
 export default function QuoteView({
   price,
   quote,
@@ -25,8 +28,13 @@ export default function QuoteView({
   setQuote: (price: any) => void;
   takerAddress: Address | undefined;
 }) {
-  // fetch quote here
+  const sellTokenInfo =
+    POLYGON_TOKENS_BY_ADDRESS[price.sellTokenAddress.toLowerCase()];
 
+  const buyTokenInfo =
+    POLYGON_TOKENS_BY_ADDRESS[price.buyTokenAddress.toLowerCase()];
+
+  // fetch quote here
   const { address } = useAccount();
 
   const { isLoading: isLoadingPrice } = useSWR(
@@ -38,6 +46,8 @@ export default function QuoteView({
         sellAmount: price.sellAmount,
         // buyAmount: TODO if we want to support buys,
         takerAddress,
+        feeRecipient: FEE_RECIPIENT,
+        buyTokenPercentageFee: AFFILIATE_FEE,
       },
     ],
     fetcher,
@@ -45,6 +55,7 @@ export default function QuoteView({
       onSuccess: (data) => {
         setQuote(data);
         console.log("quote", data);
+        console.log(formatUnits(data.buyAmount, buyTokenInfo.decimals), data);
       },
     }
   );
@@ -60,8 +71,8 @@ export default function QuoteView({
     return <div>Getting best quote...</div>;
   }
 
-  const sellTokenInfo =
-    POLYGON_TOKENS_BY_ADDRESS[price.sellTokenAddress.toLowerCase()];
+  console.log("quote", quote);
+  console.log(formatUnits(quote.sellAmount, sellTokenInfo.decimals));
 
   return (
     <div className="p-3 mx-auto max-w-screen-sm ">
@@ -93,19 +104,24 @@ export default function QuoteView({
                   .logoURI
               }
             />
-            <span>
-              {formatUnits(
-                quote.buyAmount,
-                POLYGON_TOKENS_BY_ADDRESS[price.buyTokenAddress.toLowerCase()]
-                  .decimals
-              )}
-            </span>
-            <div className="ml-2">
-              {
-                POLYGON_TOKENS_BY_ADDRESS[price.buyTokenAddress.toLowerCase()]
-                  .symbol
-              }
-            </div>
+            <span>{formatUnits(quote.buyAmount, buyTokenInfo.decimals)}</span>
+            <div className="ml-2">{buyTokenInfo.symbol}</div>
+          </div>
+        </div>
+        <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-sm mb-3">
+          <div className="text-slate-400">
+            {quote && quote.grossBuyAmount
+              ? "Affiliate Fee: " +
+                Number(
+                  formatUnits(
+                    BigInt(quote.grossBuyAmount),
+                    buyTokenInfo.decimals
+                  )
+                ) *
+                  AFFILIATE_FEE +
+                " " +
+                buyTokenInfo.symbol
+              : null}
           </div>
         </div>
       </form>

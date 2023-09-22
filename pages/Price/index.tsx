@@ -9,11 +9,13 @@ import {
   usePrepareContractWrite,
   useContractWrite,
   useWaitForTransaction,
+  useBalance,
   type Address,
 } from "wagmi";
 import {
   POLYGON_TOKENS,
   POLYGON_TOKENS_BY_SYMBOL,
+  POLYGON_TOKENS_BY_ADDRESS,
   MAX_ALLOWANCE,
   exchangeProxy,
 } from "../../lib/constants";
@@ -26,6 +28,9 @@ interface PriceRequestParams {
   takerAddress?: string;
 }
 
+const AFFILIATE_FEE = 0.01; // Percentage of the buyAmount that should be attributed to feeRecipient as affiliate fees
+const FEE_RECIPIENT = "0x75A94931B81d81C7a62b76DC0FcFAC77FbE1e917"; // The ETH address that should receive affiliate fees
+
 export const fetcher = ([endpoint, params]: [string, PriceRequestParams]) => {
   const { sellAmount, buyAmount } = params;
   if (!sellAmount && !buyAmount) return;
@@ -35,6 +40,7 @@ export const fetcher = ([endpoint, params]: [string, PriceRequestParams]) => {
 };
 
 export default function PriceView({
+  price,
   setPrice,
   setFinalize,
   takerAddress,
@@ -61,6 +67,7 @@ export default function PriceView({
 
   const sellTokenDecimals = POLYGON_TOKENS_BY_SYMBOL[sellToken].decimals;
 
+  console.log(sellAmount, sellTokenDecimals, "<-");
   const parsedSellAmount =
     sellAmount && tradeDirection === "sell"
       ? parseUnits(sellAmount, sellTokenDecimals).toString()
@@ -82,6 +89,8 @@ export default function PriceView({
         sellAmount: parsedSellAmount,
         buyAmount: parsedBuyAmount,
         takerAddress,
+        feeRecipient: FEE_RECIPIENT,
+        buyTokenPercentageFee: AFFILIATE_FEE,
       },
     ],
     fetcher,
@@ -89,6 +98,7 @@ export default function PriceView({
       onSuccess: (data) => {
         setPrice(data);
         if (tradeDirection === "sell") {
+          console.log(formatUnits(data.buyAmount, buyTokenDecimals), data);
           setBuyAmount(formatUnits(data.buyAmount, buyTokenDecimals));
         } else {
           setSellAmount(formatUnits(data.sellAmount, sellTokenDecimals));
@@ -96,6 +106,20 @@ export default function PriceView({
       },
     }
   );
+
+  const { data, isError, isLoading } = useBalance({
+    address: takerAddress,
+    token: POLYGON_TOKENS_BY_SYMBOL[sellToken].address,
+  });
+
+  console.log(sellAmount);
+
+  const disabled =
+    data && sellAmount
+      ? parseUnits(sellAmount, sellTokenDecimals) > data.value
+      : true;
+
+  console.log(data, isError, isLoading);
 
   return (
     <form>
@@ -183,6 +207,20 @@ export default function PriceView({
             }}
           />
         </section>
+        <div className="text-slate-400">
+          {price && price.grossBuyAmount
+            ? "Affiliate Fee: " +
+              Number(
+                formatUnits(
+                  BigInt(price.grossBuyAmount),
+                  POLYGON_TOKENS_BY_SYMBOL[buyToken].decimals
+                )
+              ) *
+                AFFILIATE_FEE +
+              " " +
+              POLYGON_TOKENS_BY_SYMBOL[buyToken].symbol
+            : null}
+        </div>
       </div>
 
       {takerAddress ? (
@@ -192,6 +230,7 @@ export default function PriceView({
           onClick={() => {
             setFinalize(true);
           }}
+          disabled={disabled}
         />
       ) : (
         <ConnectKitButton.Custom>
@@ -228,10 +267,12 @@ function ApproveOrReviewButton({
   takerAddress,
   onClick,
   sellTokenAddress,
+  disabled,
 }: {
   takerAddress: Address;
   onClick: () => void;
   sellTokenAddress: Address;
+  disabled?: boolean;
 }) {
   // 1. Read from erc20, does spender (0x Exchange Proxy) have allowance?
   const { data: allowance, refetch } = useContractRead({
@@ -276,7 +317,7 @@ function ApproveOrReviewButton({
             const writtenValue = await approveAsync();
           }}
         >
-          {isApproving ? "Approving..." : "Approve"}
+          {isApproving ? "Approving…" : "Approve"}
         </button>
       </>
     );
@@ -285,10 +326,11 @@ function ApproveOrReviewButton({
   return (
     <button
       type="button"
+      disabled={disabled}
       onClick={onClick}
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full disabled:opacity-25"
     >
-      Review Trade
+      {disabled ? "Insufficient Balance" : "Review Trade"}
     </button>
   );
 }
