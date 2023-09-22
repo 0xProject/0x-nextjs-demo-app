@@ -9,6 +9,7 @@ import {
   usePrepareContractWrite,
   useContractWrite,
   useWaitForTransaction,
+  useBalance,
   type Address,
 } from "wagmi";
 import {
@@ -106,11 +107,19 @@ export default function PriceView({
     }
   );
 
-  if (price && price.grossBuyAmount) {
-    console.log(
-      Number(formatUnits(BigInt(price.grossBuyAmount), 18)) * AFFILIATE_FEE
-    );
-  }
+  const { data, isError, isLoading } = useBalance({
+    address: takerAddress,
+    token: POLYGON_TOKENS_BY_SYMBOL[sellToken].address,
+  });
+
+  console.log(sellAmount);
+
+  const disabled =
+    data && sellAmount
+      ? parseUnits(sellAmount, sellTokenDecimals) > data.value
+      : true;
+
+  console.log(data, isError, isLoading);
 
   return (
     <form>
@@ -221,6 +230,7 @@ export default function PriceView({
           onClick={() => {
             setFinalize(true);
           }}
+          disabled={disabled}
         />
       ) : (
         <ConnectKitButton.Custom>
@@ -257,10 +267,12 @@ function ApproveOrReviewButton({
   takerAddress,
   onClick,
   sellTokenAddress,
+  disabled,
 }: {
   takerAddress: Address;
   onClick: () => void;
   sellTokenAddress: Address;
+  disabled?: boolean;
 }) {
   // 1. Read from erc20, does spender (0x Exchange Proxy) have allowance?
   const { data: allowance, refetch } = useContractRead({
@@ -314,10 +326,11 @@ function ApproveOrReviewButton({
   return (
     <button
       type="button"
+      disabled={disabled}
       onClick={onClick}
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full disabled:opacity-25"
     >
-      Review Trade
+      {disabled ? "Insufficient Balance" : "Review Trade"}
     </button>
   );
 }

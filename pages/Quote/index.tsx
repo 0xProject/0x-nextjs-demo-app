@@ -71,12 +71,6 @@ export default function QuoteView({
     return <div>Getting best quote...</div>;
   }
 
-  if (quote && quote.grossBuyAmount) {
-    console.log(
-      "grossBuyAmount * AFFILIATE_FEE",
-      Number(formatUnits(BigInt(quote.grossBuyAmount), 18)) * AFFILIATE_FEE
-    );
-  }
   console.log("quote", quote);
   console.log(formatUnits(quote.sellAmount, sellTokenInfo.decimals));
 
