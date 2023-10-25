@@ -4,7 +4,9 @@
 
 An example ERC-20 swap application built on [Next.js 13](https://nextjs.org/) with [0x Swap API](https://0x.org/docs/0x-swap-api/introduction) and [ConnectKit](https://docs.family.co/connectkit#connectkit).
 
-Covers best practices for how to use the 0x Swap API's [/price](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-price) endpoint for [indicative pricing](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity#1-indicative-pricing) and the [/quote](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-quote) endpoint for [firm quotes](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity#2-firm-quotes).
+Swap API enables your users to easily and conveniently trade tokens at the best prices directly in your app. With one simple integration, 0x unlocks thousands of tokens on the most popular blockchains and aggregated liquidity from 100+ AMMs and professional market makers.
+
+This demo app covers best practices for how to use the 0x Swap API's [/price](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-price) endpoint for [indicative pricing](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity#1-indicative-pricing) and the [/quote](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-quote) endpoint for [firm quotes](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity#2-firm-quotes).
 
 ### Live Demo
 
@@ -48,13 +50,13 @@ open http://localhost:3000
 
 ### Documentation
 
-#### Swap API Basics
+#### Swap API Docs
 
-- [**📚 Swap API Docs**](https://0x.org/docs/0x-swap-api/introduction)
+- [**Intro to Swap API**](https://0x.org/docs/0x-swap-api/introduction)
 - [**How to Use Swap API**](https://0x.org/docs/0x-swap-api/guides/swap-tokens-with-0x-swap-api)
-- [**Quote API Endpoint**](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-quote)
-- [**Price API Endpoint**](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-price)
-- [**⛓️ Swap API Endpoints on All Networks**](https://0x.org/docs/introduction/0x-cheat-sheet)
+- [**Quote API References**](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-quote)
+- [**Price API References**](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-price)
+- [**Swap API Endpoints on All Networks**](https://0x.org/docs/introduction/0x-cheat-sheet)
 
 #### RFQ Integration on Swap API
 
@@ -62,10 +64,14 @@ The 0x Swap API makes it simple to easily integrate RFQ liquidity for the best p
 
 #### Monetizing Your Swap Integration
 
-You have full flexibility to collect affiliate fees on trades going through your swap integration. This can be done by setting the `feeRecipient` and `buyTokenPercentageFee` parameters in a Swap API request. 
+And as your business grows, Swap API offers low-friction ways to monetize your products.
 
-If you would like to display the fee to your end users separately, just display the amount returned by `grossBuyAmount` * `buyTokenPercentageFee`.
+Web3 teams can leverage Swap API to unlock new revenue streams by easily tapping into affiliate fee and trade surplus features. Regardless of whether you’re on a [**free or paid plan**](https://0x.org/pricing), monetization options are available to *all* integrators.
 
-Learn more about setting up monetization [here](https://0x.org/docs/developer-resources/faqs-and-troubleshooting#monetizing-your-swap-integration). 
+Swap API offers two monetization options out-of-the-box:
+* Collect affiliate fees (i.e. trading fee or commission) <- shown in this demo app
+* Collect trade surplus (i.e. positive slippage)
+
+For more details about monetizing, check out the [**How to monetize your app using 0x Swap API**](https://0x.org/docs/0x-swap-api/guides/monetize-your-app-using-swap) guide which discusses pricing considerations and shows code samples for how to easily implement these options.
 
 
