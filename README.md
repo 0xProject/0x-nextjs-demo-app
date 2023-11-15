@@ -8,6 +8,9 @@ Swap API enables your users to easily and conveniently trade tokens at the best 
 
 This demo app covers best practices for how to use the 0x Swap API's [/price](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-price) endpoint for [indicative pricing](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity#1-indicative-pricing) and the [/quote](https://0x.org/docs/0x-swap-api/api-references/get-swap-v1-quote) endpoint for [firm quotes](https://0x.org/docs/0x-swap-api/guides/accessing-rfq-liquidity/how-to-integrate-rfq-liquidity#2-firm-quotes).
 
+> [!WARNING]  
+> This is a demo, and is not ready for production use. The code has not been audited, may contain bugs and not account for all possible error cases. Use at your own risk.
+
 ### Live Demo
 
 Checkout with live demo 👉 [here](https://0x-nextjs-demo-app-git-main-0x-eng.vercel.app/)
