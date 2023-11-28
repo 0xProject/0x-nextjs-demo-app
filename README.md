@@ -1,4 +1,4 @@
-# 0x Next.js Demo App
+# 0x Swap API Demo App (Next.js)
 
 ## Overview
 
@@ -76,5 +76,14 @@ Swap API offers two monetization options out-of-the-box:
 * Collect trade surplus (i.e. positive slippage)
 
 For more details about monetizing, check out the [**How to monetize your app using 0x Swap API**](https://0x.org/docs/0x-swap-api/guides/monetize-your-app-using-swap) guide which discusses pricing considerations and shows code samples for how to easily implement these options.
+
+## Further Examples
+
+To find more demo apps, check out the official [0x examples repo](https://github.com/0xProject/0x-examples).
+
+Try out - 
+
+- [Tx Relay API Demo App (Next.js App Router)](https://github.com/0xProject/0x-examples/tree/main/tx-relay-next-app)
+- [Swap API Demo App (HTML/CSS/JavaScript)](https://github.com/0xProject/swap-demo-tutorial)
 
 
