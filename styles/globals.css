@@ -8,10 +8,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-h1 {
-  text-align: center;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
