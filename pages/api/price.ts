@@ -15,7 +15,7 @@ export default async function handler(
     `https://polygon.api.0x.org/swap/v1/price?${query}`,
     {
       headers: {
-        "0x-api-key": "c9f13c84-9fcb-4f42-aa30-a11b0d016aa5", // process.env.NEXT_PUBLIC_0X_API_KEY,
+        "0x-api-key": "f8c65b83-a5d8-4f3d-9eda-518c246fc15b", // process.env.NEXT_PUBLIC_0X_API_KEY,
       },
     }
   );
