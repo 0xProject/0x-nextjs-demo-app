@@ -12,7 +12,7 @@ const config = createConfig(
   getDefaultConfig({
     // Required API Keys
     alchemyId: "MzUaa0A87yexjd8UKcHm8HIr1f4aghxT",
-    walletConnectProjectId: "a8024e8262cb4e7102941a3577b5a5c0",
+    walletConnectProjectId: "78f017a7dc8dcd4ccf61bbac26906b4d",
 
     // Required
     appName: "0x Next.js Demo App",
