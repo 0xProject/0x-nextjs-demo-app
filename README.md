@@ -86,4 +86,13 @@ Try out -
 - [Tx Relay API Demo App (Next.js App Router)](https://github.com/0xProject/0x-examples/tree/main/tx-relay-next-app)
 - [Swap API Demo App (HTML/CSS/JavaScript)](https://github.com/0xProject/swap-demo-tutorial)
 
+- Tx Relay API is supported on the following chains via https://api.0x.org/. Select the chain in your request by providing the corresponding chain id with the 0x-chain-id header.
+
+Chain	Chain ID
+Ethereum (Mainnet)	1
+Polygon	137
+Arbitrum	42161
+Base	8453
+Optimism	10
+
 
