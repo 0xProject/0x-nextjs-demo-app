@@ -34,7 +34,9 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       <WagmiConfig config={config}>
         <ConnectKitProvider>
-        
+        <div className="connect-button-container">
+            <ConnectKitButton />
+          </div>
           {mounted && <Component {...pageProps} />}
         </ConnectKitProvider>
       </WagmiConfig>
