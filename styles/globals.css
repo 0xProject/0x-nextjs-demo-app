@@ -6,7 +6,7 @@ h1 {
   text-align: center;
 }
 
-connect-button-container {
+.connect-button-container {
   position: fixed; /* 或者 absolute，取决于布局需求 */
   top: 0;
   right: 0;
