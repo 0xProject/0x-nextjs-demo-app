@@ -123,12 +123,8 @@ export default function PriceView({
 
   return (
     <form>
-      <h1 className="text-3xl font-bold mb-4">0x Swap API Demo</h1>
-      <p className="text-md mb-2">
-        Check out the <a href="https://0x.org/docs/">0x Docs</a> and{" "}
-        <a href="https://0x.org/docs/">Code</a> to build your own
-      </p>
-      <p className="text-md font-bold mb-2">Polygon Network</p>
+      <h1 className="text-3xl font-bold mb-4">BaseSwap</h1>
+      <p className="text-md font-bold mb-2">Base Network</p>
 
       <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-md mb-3">
         <section className="mt-4 flex items-start justify-center">
