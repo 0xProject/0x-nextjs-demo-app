@@ -50,7 +50,6 @@ export default function PriceView({
   setFinalize: (finalize: boolean) => void;
   takerAddress: Address | undefined;
 }) {
-  // fetch price here
   const [sellAmount, setSellAmount] = useState("");
   const [buyAmount, setBuyAmount] = useState("");
   const [tradeDirection, setTradeDirection] = useState("sell");
@@ -80,6 +79,7 @@ export default function PriceView({
       ? parseUnits(buyAmount, buyTokenDecimals).toString()
       : undefined;
 
+  // fetch price here
   const { isLoading: isLoadingPrice } = useSWR(
     [
       "/api/price",
@@ -123,12 +123,9 @@ export default function PriceView({
 
   return (
     <form>
-      <h1 className="text-3xl font-bold mb-4">0x Swap API Demo</h1>
-      <p className="text-md mb-2">
-        Check out the <a href="https://0x.org/docs/">0x Docs</a> and{" "}
-        <a href="https://0x.org/docs/">Code</a> to build your own
-      </p>
-      <p className="text-md font-bold mb-2">Polygon Network</p>
+      <h1 className="text-center text-3xl font-bold mb-4">0x Swap Demo</h1>
+
+      <p className="text-md text-center font-bold mb-2">Polygon Network</p>
 
       <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-md mb-3">
         <section className="mt-4 flex items-start justify-center">
@@ -259,6 +256,20 @@ export default function PriceView({
       {isLoadingPrice && (
         <div className="text-center mt-2">Fetching the best price...</div>
       )}
+
+      <p className="text-md text-center p-4 text-gray-500">
+        Check out the{" "}
+        <u className="underline">
+          <a href="https://0x.org/docs/0x-swap-api/guides/build-token-swap-dapp-nextjs">
+            0x Docs
+          </a>
+        </u>{" "}
+        and{" "}
+        <u className="underline">
+          <a href="https://github.com/0xProject/0x-examples/tree/main">Code</a>
+        </u>{" "}
+        to build your own
+      </p>
     </form>
   );
 }
