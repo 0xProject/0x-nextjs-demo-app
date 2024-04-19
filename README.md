@@ -1,8 +1,8 @@
-# 0x Swap API Demo App (Next.js)
+# 0x Swap API Demo App (Next.js Pages Router)
 
 ## Overview
 
-An example ERC-20 swap application built on [Next.js 13](https://nextjs.org/) with [0x Swap API](https://0x.org/docs/0x-swap-api/introduction) and [ConnectKit](https://docs.family.co/connectkit#connectkit).
+An example ERC-20 swap application built on [Next.js Pages Router](https://nextjs.org/) with [0x Swap API](https://0x.org/docs/0x-swap-api/introduction) and [ConnectKit](https://docs.family.co/connectkit#connectkit).
 
 Swap API enables your users to easily and conveniently trade tokens at the best prices directly in your app. With one simple integration, 0x unlocks thousands of tokens on the most popular blockchains and aggregated liquidity from 100+ AMMs and professional market makers.
 
@@ -83,7 +83,7 @@ To find more demo apps, check out the official [0x examples repo](https://github
 
 Try out - 
 
-- [Tx Relay API Demo App (Next.js App Router)](https://github.com/0xProject/0x-examples/tree/main/tx-relay-next-app)
-- [Swap API Demo App (HTML/CSS/JavaScript)](https://github.com/0xProject/swap-demo-tutorial)
+- [Swap API Demo App (Next.js App Router)](https://github.com/0xProject/0x-examples/tree/main/swap-next-app)
+- [Gasless API Demo App (Next.js App Router)](https://github.com/0xProject/0x-examples/tree/main/tx-relay-next-app)
 
 
