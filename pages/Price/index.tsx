@@ -12,6 +12,7 @@ import {
   useBalance,
   type Address,
 } from "wagmi";
+import { polygon } from "wagmi/chains";
 import {
   POLYGON_TOKENS,
   POLYGON_TOKENS_BY_SYMBOL,
@@ -66,7 +67,7 @@ export default function PriceView({
 
   const sellTokenDecimals = POLYGON_TOKENS_BY_SYMBOL[sellToken].decimals;
 
-  console.log(sellAmount, sellTokenDecimals, "<-");
+  console.log("sellAmount", sellAmount, "sellTokenDecimals", sellTokenDecimals);
   const parsedSellAmount =
     sellAmount && tradeDirection === "sell"
       ? parseUnits(sellAmount, sellTokenDecimals).toString()
@@ -98,7 +99,12 @@ export default function PriceView({
       onSuccess: (data) => {
         setPrice(data);
         if (tradeDirection === "sell") {
-          console.log(formatUnits(data.buyAmount, buyTokenDecimals), data);
+          console.log(
+            "formatted buyAmount",
+            formatUnits(data.buyAmount, buyTokenDecimals),
+            "data",
+            data
+          );
           setBuyAmount(formatUnits(data.buyAmount, buyTokenDecimals));
         } else {
           setSellAmount(formatUnits(data.sellAmount, sellTokenDecimals));
@@ -107,19 +113,31 @@ export default function PriceView({
     }
   );
 
+  // Conditionally set the token address
+  const tokenAddress =
+    sellToken.toLowerCase() === "matic"
+      ? undefined
+      : POLYGON_TOKENS_BY_SYMBOL[sellToken]?.address;
+
   const { data, isError, isLoading } = useBalance({
     address: takerAddress,
-    token: POLYGON_TOKENS_BY_SYMBOL[sellToken].address,
+    token: tokenAddress,
   });
+  console.log(
+    "address",
+    takerAddress,
+    "token",
+    POLYGON_TOKENS_BY_SYMBOL[sellToken].address
+  );
 
-  console.log(sellAmount);
+  console.log("sellAmount", sellAmount);
 
   const disabled =
     data && sellAmount
       ? parseUnits(sellAmount, sellTokenDecimals) > data.value
       : true;
 
-  console.log(data, isError, isLoading);
+  console.log("data", data, "isError", isError, "isLoading", isLoading);
 
   return (
     <form>

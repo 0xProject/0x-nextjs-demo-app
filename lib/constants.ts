@@ -21,6 +21,15 @@ interface Token {
 export const POLYGON_TOKENS: Token[] = [
   {
     chainId: 137,
+    name: "Matic",
+    symbol: "MATIC",
+    decimals: 18,
+    address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/matic.svg",
+  },
+  {
+    chainId: 137,
     name: "Wrapped Matic",
     symbol: "WMATIC",
     decimals: 18,
@@ -67,6 +76,15 @@ export const POLYGON_TOKENS: Token[] = [
 ];
 
 export const POLYGON_TOKENS_BY_SYMBOL: Record<string, Token> = {
+  matic: {
+    chainId: 137,
+    name: "Matic",
+    symbol: "MATIC",
+    decimals: 18,
+    address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    logoURI:
+      "https://raw.githubusercontent.com/maticnetwork/polygon-token-assets/main/assets/tokenAssets/matic.svg",
+  },
   wmatic: {
     chainId: 137,
     name: "Wrapped Matic",
@@ -115,6 +133,15 @@ export const POLYGON_TOKENS_BY_SYMBOL: Record<string, Token> = {
 };
 
 export const POLYGON_TOKENS_BY_ADDRESS: Record<string, Token> = {
+  "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": {
+    chainId: 137,
+    name: "Matic",
+    symbol: "MATIC",
+    decimals: 18,
+    address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    logoURI:
+      "https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/polygon/assets/0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270/logo.png",
+  },
   "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270": {
     chainId: 137,
     name: "Wrapped Matic",
