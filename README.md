@@ -1,4 +1,8 @@
-# 0x Swap API Demo App (Next.js Pages Router)
+# [Deprecated] 0x Swap API Demo App (Next.js Pages Router)
+
+> [!WARNING]  
+> 0x API v1 was sunset on April 11, 2025. Please migrate to v2. For details, see the [migration guide](https://0x.org/docs/upgrading). See the [latest v2 examples](https://github.com/0xProject/0x-examples/tree/main?tab=readme-ov-file#v2-latest).
+
 
 ## Overview
 
